@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Livewire\Alumnos;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,7 +22,9 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
+    Route::get('/alumno', Alumnos::class);
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
 });
+
