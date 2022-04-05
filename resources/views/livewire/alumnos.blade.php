@@ -14,7 +14,7 @@
 
         <table class="table-fixed w-full">
             <thead>
-            <tr class="bg-indigo-600 text-white">
+            <tr class="bg-indigo-500 text-white">
                 <th class="px-4 py-2">Id</th>
                 <th class="px-4 py-2">Nombres</th>
                 <th class="px-4 py-2">Apellidos</th>
