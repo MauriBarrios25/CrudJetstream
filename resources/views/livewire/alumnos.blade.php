@@ -7,7 +7,7 @@
         
 
     {{-- Stop trying to control. --}}
-        <button wire:click="crear()" class="bg-blue-500 hover:bg-blue-600 text-black font-bold py-2 px-4">Crear</button>
+        <button wire:click="crear()" class="bg-blue-500 hover:bg-blue-600 rounded-md border text-black font-bold py-2 px-4">Crear</button>
         @if($modal)
             @include('livewire.crear')   
         @endif    
@@ -35,8 +35,8 @@
                 <td class="border px-4 py-2">{{ $alumno->edad }}</td>
                 <td class="border px-4 py-2">{{ $alumno->sexo }}</td>
                 <td class="border px-4 py-2">{{ $alumno->cum }} </td>
-                    <td><button wire:click="editar({{$alumno->id}})" class="bg-blue-500 hover:bg-blue-600 text-black font-bold py-2 px-4">Editar</button></td>
-                    <td><button wire:click="borrar({{$alumno->id}})" class="bg-red-500 hover:bg-red-700 text-black font-bold py-2 px-4">Borrar</button></td>
+                <td class="border px-4 py-2"><button wire:click="editar({{$alumno->id}})" class="bg-blue-500 hover:bg-blue-600 rounded-md border text-black font-bold py-2 px-4">Editar</button></td>
+                <td class="border px-4 py-2"><button wire:click="borrar({{$alumno->id}})" class="bg-red-500 hover:bg-red-700 rounded-md border text-black font-bold py-2 px-4">Borrar</button></td>
             </tr>
 
 

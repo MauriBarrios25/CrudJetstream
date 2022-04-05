@@ -11,14 +11,35 @@
                 <form>
                     <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                         <div class="mb-4">
-                            <label for="descripcion" class="block text-gray-700 text-sm font-bold mb-2">Descripción:</label>
-                            <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="descripcion" wire:model="descripcion">
+                            <label for="nombres" class="block text-gray-700 text-sm font-bold mb-2">Nombres:</label>
+                            <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="nombres" wire:model="nombres">
+                            @error('nombres') <span class="error">{{ $message }}</span> @enderror
                         </div>
 
                         <div class="mb-4">
-                            <label for="cantidad" class="block text-gray-700 text-sm font-bold mb-2">Cantidad:</label>
-                            <input type="number" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="cantidad" wire:model="cantidad">
+                            <label for="apellidos" class="block text-gray-700 text-sm font-bold mb-2">Apellidos:</label>
+                            <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="apellidos" wire:model="apellidos">
+                            @error('apellidos') <span class="error">{{ $message }}</span> @enderror
                         </div>
+
+                        <div class="mb-4">
+                            <label for="edad" class="block text-gray-700 text-sm font-bold mb-2">Edad:</label>
+                            <input type="number" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="edad" wire:model="edad">
+                            @error('edad') <span class="error">{{ $message }}</span> @enderror
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="sexo" class="block text-gray-700 text-sm font-bold mb-2">Sexo:</label>
+                            <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="sexo" wire:model="sexo">
+                            @error('sexo') <span class="error">{{ $message }}</span> @enderror
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="cum" class="block text-gray-700 text-sm font-bold mb-2">Cum:</label>
+                            <input type="number" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="cum" wire:model="cum">
+                            @error('cum') <span class="error">{{ $message }}</span> @enderror
+                        </div>
+
 
                         <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
                             <span class="flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto">

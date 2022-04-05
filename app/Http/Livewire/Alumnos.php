@@ -14,6 +14,31 @@ class Alumnos extends Component
         $this->alumnos = Alumno::all();
         return view('livewire.alumnos');
     }
+
+    public function updated($propertyName)
+    {
+        $this->validateOnly($propertyName);
+    }
+
+    protected $rules = 
+        [
+            'nombres' => 'required',
+            'apellidos'=> 'required',
+            'edad' => 'required | gt:0' ,
+            'sexo' => 'required' ,
+            'cum' => 'required | numeric | between:0,10',   
+         ];
+
+         protected $messages = [
+            'nombres.required' => 'El campo nombres es requerido.',
+            'apellidos.required' => 'El campo apellidos es requerido.',
+            'edad.required' => 'El campo edad es requerido.',
+            'edad.gt' => 'La edad debe ser mayor a 0.',
+            'sexo.required' => 'El campo sexo es requerido.',
+            'cum.required' => 'El campo cum es requerido.',
+            'cum.between' => 'La cantidad ingresada debe estar entre 0 y 10',
+        ];
+
     public function crear()
     {
         $this->limpiarCampos();
@@ -27,16 +52,22 @@ class Alumnos extends Component
         $this->modal = false;
     }
     public function limpiarCampos(){
-        $this->descripcion = '';
-        $this->cantidad = '';
+        $this->nombres = '';
+        $this->apellidos = '';
+        $this->edad = '';
+        $this->sexo = '';
+        $this->cum = '';
         $this->id_alumno = '';
     }
     public function editar($id)
     {
         $alumnos = alumno::findOrFail($id);
         $this->id_alumno = $id;
-        $this->descripcion = $alumnos->descripcion;
-        $this->cantidad = $alumnos->cantidad;
+        $this->nombres = $alumnos->nombres;
+        $this->apellidos = $alumnos->apellidos;
+        $this->edad = $alumnos->edad;
+        $this->sexo = $alumnos->sexo;
+        $this->cum = $alumnos->cum;
         $this->abrirModal();
     }
 
@@ -48,16 +79,32 @@ class Alumnos extends Component
 
     public function guardar()
     {
+
+       
+        $this->validate();
         alumno::updateOrCreate(['id'=>$this->id_alumno],
-            [
-                'descripcion' => $this->descripcion,
-                'cantidad' => $this->cantidad
-            ]);
+            
+                 [
+                    'nombres' => $this->nombres,
+                    'apellidos' => $this->apellidos,
+                    'edad'=> $this->edad,
+                    'sexo'=> $this->sexo,
+                    'cum'=> $this->cum,
+
+                 ]);
+            
+                
+            
+        
+    
+            
          
          session()->flash('message',
             $this->id_alumno ? '¡Actualización exitosa!' : '¡Alta Exitosa!');
          
          $this->cerrarModal();
          $this->limpiarCampos();
+                
+            
     }
 }
