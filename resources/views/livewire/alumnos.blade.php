@@ -21,8 +21,8 @@
                 <th class="px-4 py-2">Edad</th>
                 <th class="px-4 py-2">Sexo</th>
                 <th class="px-4 py-2">Cum</th>
-                <th class="px-4 py-2">Accion 1</th>
-                <th class="px-4 py-2">Accion 2</th>
+                <th class="px-4 py-2">Editar</th>
+                <th class="px-4 py-2">Borrar</th>
             </tr>
  
         </thead>
